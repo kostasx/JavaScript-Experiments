@@ -1,0 +1,324 @@
+<html>
+<head>
+<script src="jquery-1.7.1.min.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+body{
+	background-color: #B2B6BD;
+	background-image:url(./img/bg.png);
+	background-repeat: no-repeat;
+}
+#wrapper {
+	background-color: #B2B6BD;
+	width: 100%;
+	height: 100%;
+	DISmargin: 50px auto;
+	overflow: hidden;
+	position: relative;
+}
+#maincontainer{
+	background-image: url(./img/ipad.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	position: relative;
+	margin: 0 auto;
+	width: 1400px;
+	height: 1000px;
+	cursor: pointer;
+}
+#containermask {
+	background-image: url(./img/jquery.png);
+	width: 1024px;
+	height: 699px;
+	position: absolute;
+	top: 112px;
+	left: 188px;
+	overflow: hidden;
+	z-index: 2001;
+}
+
+#container {
+	z-index: 2000;
+	background-image: url(./img/lampbg.jpg);
+	width: 1024px;
+	height: 699px;
+	position: relative;
+	top: 112px;
+	left: 188px;
+	overflow: hidden;
+}
+
+
+#hline1, #hline2, #hline3{
+	position: absolute;
+	width: 0px;
+	top: 300px;
+	height: 0px;
+	border-top: 2px dotted rgba(255,255,255,0.5);	}
+#hline2 {	top: 448px;	}
+#hline3 {	top: 506px;	}
+
+#vline1, #vline2, #vline3, #vline4  {
+	position: absolute;
+	width: 10px;
+	height: 768px;
+	left: 400px;
+	height: 0px;
+	border-left: 2px dotted rgba(255,255,255,0.5);	}
+#vline2 { 	left: 432px;		}
+#vline3 { 	left: 488px;		}
+#vline4 { 	left: 522px;		}
+
+#lamp{
+	top: 300px;
+	left: 400px;
+	width: 122px;
+	height: 206px;
+	position: absolute;
+	background-image: url(./img/lamp.png);
+	display: none;
+}
+#lamp_color {
+	top: 300px;
+	left: 400px;
+	width: 122px;
+	height: 291px;
+	position: absolute;
+	background-image: url(./img/lamp_color_shadow.png);
+	display: none;
+	z-index: 1001;
+}
+
+#glow {
+	top: 220px;
+	left: 315px;
+	width: 304px;
+	height: 342px;
+	position: absolute;
+	background-image: url(./img/glow.png);
+	display: none;
+	z-index: 999;
+}
+
+#lamp_color1, #lamp_color2, #lamp_color3 {
+	top: 300px;
+	left: 400px;
+	width: 80px;
+	height: 191px;
+	position: absolute;
+	background-image: url(./img/lamp_color_shadow_more_back.png);
+	opacity: 0;
+	z-index: 1000;
+}
+
+#lamp_color2 {
+	width: 100px;
+	height: 239px;
+	background-image: url(./img/lamp_color_shadow_back.png);
+}
+#panel{
+	position: absolute;
+	left: 580px;
+	top: 20px;
+	width: 340px;
+	background-color: rgba(0,0,55,0.1);
+	height: 0px;
+	background-color: rgba(0,0,0,0);
+	border-top: 2px solid rgba(255,255,255,0.8);
+	border-bottom: 2px solid rgba(255,255,255,0.8);
+	border-left: 1px solid rgba(55,55,255,0.6);
+	border-right: 1px solid rgba(55,55,255,0.6);
+	-webkit-border-radius: 24px;
+	-moz-border-radius: 24px;
+	padding: 30px;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 0.85em;
+	line-height: 1.6em;
+	opacity: 0;
+	overflow: hidden;
+}
+#panel p, h3{
+	color: #dedede;
+	opacity: 0;
+}
+#panel h3{
+	font-family: Verdana;
+}
+#meter{
+	position: absolute;
+	top: 99px;
+	left: 0px;
+	width: 0px;
+	height: 0px;
+	border-top: 1px solid white;}
+#meter2{
+	position: absolute;
+	top: 100px;
+	left: 99px;
+	width: 0px;
+	height: 0px;
+	border-left: 1px solid white;}
+#meter3{
+	position: absolute;
+	top: 199px;
+	left: 100px;
+	width: 0px;
+	height: 0px;
+	border-top: 1px solid white;}
+#bmeter{
+	position: absolute;
+	top: 99px;
+	left: 0px;
+	width: 0px;
+	height: 0px;
+	border-bottom: 1px solid #002945;}
+#bmeter2{
+	position: absolute;
+	top: 100px;
+	left: 99px;
+	width: 0px;
+	height: 0px;
+	border-left: 1px solid #002945;}
+#bmeter3{
+	position: absolute;
+	top: 199px;
+	left: 100px;
+	width: 0px;
+	height: 0px;
+	border-top: 1px solid #0C2E4B;}
+
+#touch{
+	width:20px;
+	height: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	position: absolute;
+	background-color: rgba(55,55,255,1);
+	opacity: 0;
+	left: 570px;
+	top: 190px;
+}
+
+#xray{
+	width: 260px;
+	height: 260px;
+	position: absolute;
+	left: 335px;
+	top: 768px;
+	opacity: 1;
+	-webkit-border-radius: 12px;
+	background-image:url(./img/xray.png);
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="maincontainer">
+	<div id="containermask"></div>
+	<div id="container">
+
+	<div id="xray"></div>
+
+	<div id="meter"></div>
+	<div id="meter2"></div>
+	<div id="meter3"></div>
+	<div id="meter4"></div>
+
+	<div id="bmeter"></div>
+	<div id="bmeter2"></div>
+	<div id="bmeter3"></div>
+	<div id="bmeter4"></div>
+
+	<div id="touch"></div>
+
+	<div id="panel">
+	<h3>jQuery in Action!</h3>
+	<br />
+	<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis cursus risus, in lacinia mi dictum non. Mauris vel odio vel sapien sodales semper facilisis vitae erat. In viverra arcu a sem tincidunt pellentesque. Maecenas ultricies auctor purus sit amet tempus. Donec vel dui vel nisi iaculis consectetur vitae eget enim. Nam sollicitudin lacus convallis neque sollicitudin ultrices. Maecenas eleifend dignissim accumsan. Morbi mattis fringilla libero, at egestas enim sollicitudin ac. 
+	</p>
+	</div>
+	<div id="hline1"></div><div id="hline2"></div><div id="hline3"></div>
+	<div id="vline1"></div><div id="vline2"></div><div id="vline3"></div>
+	<div id="vline4"></div>
+
+		<div id="glow"></div>
+		<div id="lamp"></div>
+		<div id="lamp_color"></div>
+		<div id="lamp_color1"></div>
+		<div id="lamp_color2"></div>
+		<div id="lamp_color3"></div>
+
+	</div>
+</div><!-- maincontainer //-->
+</div>
+<!-- My very first experiment with jQuery (2011) -->
+<script>
+$(function(){
+	$("#containermask").click(function(){
+		$(this).fadeOut(1500);
+		init();
+	});
+});
+function init(){
+	$("#xray").animate({'top':'275px'}, 4000);
+	var g = true;
+	function glow(){
+		if ( g == true ) { g = false; } else if ( g == false ) {  g = true; }
+		if ( g == true ) { $("#glow").animate({'opacity': 1 }, 1500); }
+		else { $("#glow").animate({'opacity': 0 }, 1500 ); }
+	}
+
+	$("#meter").animate({'width':'100px'},2000, function(){
+		$("#meter2").animate({'height':'100px'},2000, function(){
+		$("#meter3").animate({'width':'480px'},3500, function(){
+
+			$("#touch").animate({'opacity':1},100,function(){
+				$(this).animate({'opacity':0},100, function(){
+						clearwhite();
+
+	$("#panel p, #panel h3").animate({'opacity':0}, 2000, function(){
+	$("#xray").fadeOut(2000);
+	$("#panel").animate({'height':'0px'},1500);
+	$("#panel").animate({'opacity':0},2000);
+
+});
+				});
+			});
+		});
+		})	
+	});
+	$("#panel").animate({'opacity': 1, 'height':'260px'}, 2000, function(){
+		$("#panel p, #panel h3").animate({'opacity': 1}, 2000);	});
+	$("#lamp").fadeIn(6000);
+	$("#hline1").animate({'width':'1024px'}, 5000, function(){
+			$("#lamp").fadeOut(2000);
+			$("#lamp_color").fadeIn(2000,function(){
+			$("#glow").fadeIn(1000);
+			var timer = setInterval(glow, 2000);
+	$("#hline1, #hline2, #hline3, #vline1, #vline2, #vline3, #vline4").fadeOut(1500);
+	$("#lamp_color1").animate({'opacity': 1,'left': '550px'}, 2000);
+	$("#lamp_color2").animate({'opacity': 1,'left': '250px'}, 2000);
+	$("#lamp_color3").animate({'opacity': 1,'left': '100px'}, 2000); 	});
+});
+	$("#hline2").delay("500").animate({'width':'1024px'}, 4500);
+	$("#hline3").delay("750").animate({'width':'1024px'}, 4250);
+	$("#vline1").animate({'height':'768px'}, 5000);
+	$("#vline2").delay('250').animate({'height':'768px'}, 4750);
+	$("#vline3").delay('500').animate({'height':'768px'}, 4500);
+	$("#vline4").delay('750').animate({'height':'768px'}, 4250);
+
+function clearwhite(){
+		$("#bmeter").animate({'width':'100px'},1000, function(){
+			$("#bmeter2").animate({'height':'100px'},1000, function(){				$("#bmeter3").animate({'width':'480px'},1500);
+	}); });
+}
+
+};
+</script>
+</bodY>
