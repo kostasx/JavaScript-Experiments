@@ -1,0 +1,332 @@
+<html>
+<head>
+<style>
+*			{	margin: 0;		padding: 0;									}
+body		{	background-image: url(img/bg_tile.png);
+				background-repeat: repeat;									}
+img			{	outline: none; border: 0;									}
+#box 		{	background: url(img/bg.png) no-repeat;
+				width: 922px;
+				height: 686px;
+				margin: 0 auto;
+				text-align: center;
+				position: relative;											}
+#widget_container 
+			{	position: relative;
+				outline: none;												}
+#widget 	{	width: 640px;
+				height: 427px;
+				border: 3px solid black;
+				position: absolute;
+				top: 141px;
+				left: 130px;
+				z-index: 1000;												}
+#frame, #fork, #rearshock, #saddle, #crank, #brakes, #gearshifters, #discs, #tyres, #seatpost 
+			{	position: absolute;
+				z-index: 1001;
+				display: none;
+				outline: none;
+				border: 0px;												}
+#frame	{		top: 223px;		left: 255px;								}
+#fork	{		top: 262px;		left: 548px;								}
+#rearshock	{	top: 314px;		left: 342px; 								}
+#saddle	{		top: 185px;		left: 299px;  								}
+#crank	{		top: 391px;		left: 374px;  								}
+#brakes	{		top: 354px;		left: 255px;								}
+#gearshifters	{	top: 177px;	left: 553px;								}
+#discs	{		top: 386px;		left: 227px;								}
+#tyres	{		top: 302px; 	left: 146px;								}
+#seatpost	{	top:199px;		left: 331px; 								}
+
+
+
+
+
+.msg {
+	position: absolute;
+	background-color: #C5D30C;
+	border: 4px solid white;
+	width: 200px;
+	top: 0px;
+	left: 0px;
+	z-index: 1002;
+	display: none;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+}
+
+.msg p {
+	color: black;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: Verdana;
+	font-size: 0.75em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.desc {
+	position: absolute;
+	background-color: #69AFC1;
+	border: 4px solid black;
+	width: 200px;
+	top: 0px;
+	left: 0px;
+	z-index: 1002;
+	display: none;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+
+}
+
+.desc p {
+	color: black;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: Verdana;
+	font-size: 0.75em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.arrow {
+	background: url(img/arrow.gif) no-repeat;
+	height: 11px;
+	width: 21px;
+	position: absolute;
+	top: -11px;
+	left: 79px;
+	z-index: 1003;
+}
+
+</style>
+<script src="jquery.js"></script>
+<script src="jquery-ui.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="box">
+		<div id="widget_container">
+
+<div id="frame" class="partz"><!-- frame //-->
+	<img src="img/frame.png" width="315" height="210" class="parts" usemap="#frame" />
+	<map name="frame">
+	<area shape="poly" coords="0,192,85,100,93,99,99,111,98,117,36,183,20,195,126,191,126,208,118,209,0,209" onmouseout="rm(this);" href="#frame_hover1" />
+	<area shape="poly" coords="93,29,107,21,114,38,121,41,120,51,122,55,149,62,165,60,274,11,278,4,294,0,300,2,306,17,313,40,313,45,298,51,292,55,275,66,177,192,175,190,156,173,137,174,118,112,141,112,143,115,157,167,164,165,200,123,254,43,153,87,135,101,115,104,99,56,94,52,97,43" onmouseout="rm(this);" href="#frame_hover2" />
+	</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Body Frame
+		<br/>Specifications:</p>
+	</div>
+</div><!-- frame //-->
+			
+<div id="fork" class="partz"><!-- fork //-->
+	<img src="img/fork.png" class="parts" width="100" height="169" usemap="#fork" />
+	<map name="fork">
+	<area shape="poly" coords="3,9,18,2,26,8,87,149,96,160,91,166,77,160,16,20,12,15,6,17" href="#fork" onmouseout="rm(this);" />
+	</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Front Fork Suspension<br/>
+		Specifications:</p>
+	</div>
+</div><!-- fork //-->
+
+<div id="rearshock" class="partz"><!-- rearshock //-->
+<img src="img/rear_shock.png" class="parts" width="84" height="83" usemap="#rearshock" />
+<map name="rearshock">
+<area shape="poly" coords="2,13,2,15,3,24,47,26,62,15,65,77,69,81,76,77,82,7,75,6,70,1" href="#rearshock" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Rear Shock<br/>
+		Specifications:</p>
+	</div>
+</div><!-- rearshock //-->
+
+<div id="saddle" class="partz"><!-- saddle //-->
+<img src="img/saddle.png" class="parts" width="96" height="32" usemap="#saddle" />
+<map name="saddle">
+<area shape="poly" coords="2,5,5,1,22,4,46,6,80,6,84,6,92,10,92,15,69,14,57,23,47,22,47,25,42,30,36,29,34,23,27,24,22,19,16,17" href="#saddle" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Saddle<br/>
+		Specifications:</p>
+	</div>
+</div><!-- saddle //-->
+
+<div id="crank" class="partz"><!-- crank //-->
+<img src="img/crank.png" class="parts" width="97" height="64" usemap="#crank" />
+<map name="crank">
+<area shape="poly" coords="1,32,6,17,29,3,36,2,54,14,59,26,89,28,94,33,90,38,59,39,48,55,34,62,19,57,5,44" href="#crank" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Crank<br/>
+		Specifications:</p>
+	</div>
+</div><!-- crank //-->
+
+<div id="brakes" class="partz"><!-- brakes //-->
+<img src="img/brakes.png" width="374" height="76" class="parts" usemap="#brakes" />
+<map name="brakes">
+<area shape="poly" coords="1,35,8,42,17,43,30,30,41,22,27,27,16,33,11,32,2,32" href="#brakes1" onmouseout="rm(this);" />
+<area shape="poly" coords="348,70,348,67,350,63,350,55,347,49,345,45,359,42,360,45,359,48,357,48,356,51,360,57,360,61,360,66,353,70" href="#brakes2" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Brakes<br/>
+		Specifications:</p>
+	</div>
+</div><!-- brakes //-->
+
+
+<div id="gearshifters" class="partz"><!-- gearshifters //-->
+<img src="img/gearshifters.png" class="parts" width="40" height="82" usemap="#gearshifters" />
+<map name="gearshifters">
+<area shape="poly" coords="8,20,13,14,18,13,22,19,22,26,25,29,24,30,20,30,14,27,9,24" href="#gearshifters" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Gear Shifters<br/>
+		Specifications:</p>
+	</div>
+	<div class="desc"><p>More Information<br/>Some More Information<br/>And some more...</p></div>
+</div><!-- gearshifters //-->
+
+<div id="discs" class="partz"><!-- discs //-->
+<img src="img/discs.png" class="parts" usemap="#discs" width="451" height="70" usemap="#discs" />
+<map name="discs">
+<area shape="circle" coords="39,34,30" href="#disc1" onmouseout="rm(this);" />
+<area shape="circle" coords="413,35,30" href="#discs2" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Discs<br/>
+		Specifications:</p>
+	</div>
+</div><!-- discs //-->
+
+<div id="tyres" class="partz"><!-- tyres //-->
+<img src="img/tyres.png" width="614" height="236" class="parts" usemap="#tyres" />
+<map name="tyres">
+<area shape="poly" coords="122,8,178,24,213,63,227,93,228,146,205,185,179,210,138,225,98,226,52,205,22,168,12,115,17,79,39,46,66,24,114,9,113,24,71,36,39,66,24,108,29,150,51,187,91,211,136,214,179,196,205,165,216,133,215,88,196,59,176,40,153,29,126,22,116,23" href="#tyres" onmouseout="rm(this);" />
+<area shape="poly" coords="493,7,549,23,584,62,598,92,599,145,576,184,550,209,509,224,469,225,423,204,393,167,383,114,388,78,410,45,437,23,485,8,484,23,442,35,410,65,395,107,400,149,422,186,462,210,507,213,550,195,576,164,587,132,586,87,567,58,547,39,524,28,497,21,487,22" href="#tyres" onmouseout="rm(this);" />
+</map>
+	<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Tyres<br/>
+		Specifications:</p>
+	</div>
+</div><!-- tyres //-->
+
+<div id="seatpost" class="partz"><!-- seatpost //-->
+<img src="img/seatpost.png"  width="38" height="67" class="parts" usemap="#seatpost" />
+<map name="seatpost">
+<area shape="poly" coords="4,18,17,10,32,55,22,58,18,55,12,23" href="#seatpost" />
+</map>
+<div class="msg">
+		<div class="arrow"></div>
+		<p>Part: Seatpost<br/>
+		Specifications:</p>
+	</div>
+</div><!-- seatpost //-->
+
+
+<img id="widget" src="img/bike_bg.png" width="640" height="427" border="0" usemap="#map" />
+
+<map name="map">
+<!-- Image map file created by GIMP Image Map plug-in (v2.3) by Maurits Rijk -->
+<area shape="poly" coords="163,41,185,36,233,44,257,42,262,62,237,58,222,66,216,68,207,75,195,68,184,66,181,61,169,56" href="#saddle" onmouseover="cat(this);" />
+<area shape="poly" coords="212,111,233,105,219,67,205,77" href="#seatpost" onmouseover="cat(this);" />
+
+
+<area shape="poly" coords="213,112,234,106,239,118,246,121,244,132,291,139,397,91,397,88,419,80,438,119,427,124,423,136,407,144,301,268,285,245,375,121,260,173,233,175,229,166" href="#frame1" onmouseover="cat(this);" />
+
+
+<area shape="poly" coords="129,270,136,276,210,199,203,190" href="#frame2" onmouseover="cat(this);" />
+<area shape="poly" coords="243,194,260,197,272,241,256,241" href="#frame3" onmouseover="cat(this);" />
+<area shape="poly" coords="145,277,238,273,237,287,144,287" href="#frame4" onmouseover="cat(this);" />
+
+<area shape="poly" coords="236,269,255,244,269,249,244,271" href="#deralluers1" />
+<area shape="poly" coords="107,288,120,288,123,285,127,284,137,287,151,303,143,324,147,331,262,307,262,314,132,342,123,333,125,323,137,307,132,304,118,307,109,299,104,296" href="#deralluers2" />
+<area shape="poly" coords="426,137,429,126,440,121,457,159,464,163,469,186,503,267,501,278,494,279,467,225,451,186,431,141" href="#fork" onmouseover="cat(this);"/>
+<area shape="poly" coords="397,86,392,71,414,63,430,73" href="#stem" />
+<area shape="poly" coords="409,40,416,36,432,45,432,52,424,60,407,50" href="#handlebars" />
+
+<area shape="poly" coords="433,43,434,55,440,63,448,68,460,68,445,56,445,44" href="#gearshifters" onmouseover="cat(this);" />
+
+<area shape="poly" coords="432,54,422,66,432,72,435,79,428,94,440,114,470,166,473,155,472,139,456,101,454,72,442,71" href="#brakelevers" />
+<area shape="poly" coords="271,249,285,251,300,271,339,274,339,289,301,290,292,308,264,315,264,304,255,304,240,289,241,277,247,273" href="#crank" onmouseover="cat(this);" />
+
+<area shape="poly" coords="204,187,213,199,218,196,243,191,261,196,270,188,270,220,275,246,283,248,284,242,297,167,279,170,265,173,225,180,209,182" href="#rearshock"  onmouseover="cat(this);" />
+
+<area shape="poly" coords="443,180,453,198,427,226,412,259,416,305,438,341,466,360,489,368,524,368,563,351,593,312,601,266,580,217,547,192,509,182,479,186,472,188,469,169,484,165,531,163,585,190,619,247,621,309,587,361,539,387,482,390,427,362,385,298,390,239,417,198,417,199,419,197" href="#tyres1" onmouseover="cat(this);" />
+<area shape="poly" coords="187,202,202,186,151,162,85,171,43,205,20,256,19,303,41,346,74,376,112,389,154,391,195,374,223,348,235,325,203,333,179,358,144,369,110,368,77,354,49,320,39,282,44,243,64,211,101,187,138,181,170,189" href="#tyres2" onmouseover="cat(this);" />
+<area shape="poly" coords="201,214,215,202,235,231,242,253,233,265,224,269,221,244" href="#tyres3" />
+<area shape="poly" coords="224,290,237,290,241,295,238,310,216,314" href="#tyres4" />
+<area shape="poly" coords="462,224,468,233,474,252,486,270,469,286,469,269,464,256" href="#brakes1" onmouseover="cat(this);" />
+<area shape="poly" coords="128,240,124,239,122,246,133,256,143,251,165,228" href="#brakes2" onmouseover="cat(this);" />
+<area shape="poly" coords="502,279,506,267,515,275,515,282,502,287,499,282" href="#hub" />
+
+<area shape="poly" coords="475,285,487,273,500,289,512,289,518,283,519,277,508,265,500,244,526,250,539,273,527,301,508,308,485,301" href="#discs1" onmouseover="cat(this)" />
+<area shape="poly" coords="119,248,133,261,126,268,121,272,119,283,105,283,101,269,101,268,106,262" href="#discs2" onmouseover="cat(this)"/>
+
+<area shape="poly" coords="474,191,510,185,547,195,579,220,598,266,591,310,561,350,524,366,489,366,464,357,439,338,419,306,414,260,429,227,453,202,462,220,459,223,461,272,470,297,490,315,523,316,546,277,543,259,531,247,507,238,497,240" href="#rims1" />
+<area shape="poly" coords="183,204,169,192,137,183,102,190,65,214,46,247,41,284,52,321,79,353,112,365,142,367,177,357,192,339,201,329,126,347,113,329,122,315,94,292,97,287,95,263,117,247,122,233,136,233,160,225" href="#rims2" />
+<area shape="poly" coords="158,291,215,291,219,296,211,313,148,328,147,323" href="#rims3" />
+<area shape="poly" coords="198,216,217,245,221,271,165,274,160,256" href="#rims4" />
+</map>
+		</div>
+	</div>
+</div>
+<script>
+// Configuration
+var fadeTiming = 0;
+	
+function cat(element){
+
+	// ADDITION: Check all $(".partz:not(element)").fadeOut();
+	$(".partz").fadeOut(0);
+
+	// Gray out #widget window background 
+	$("#widget").attr("src","img/bike_bg_off.png");
+
+	var part = $(element).attr("href");
+	part = part.match(/#[A-Za-z]+/);
+	var part_msg = $(".msg",""+part);
+	var part_desc = $(".desc",""+part);	// desc
+	part = $(""+part);
+	var part_height = part.height();
+	var part_width = part.width();
+	part.fadeIn(250,function(){
+		part_msg.css({top: part_height+15, left: "0px" });
+		part_msg.fadeIn(fadeTiming);
+		
+		part_desc.css({top: part_height+part_msg.height()+30, left: part_msg.width()-part_msg.width()});
+		part_desc.fadeIn(fadeTiming);
+
+	});
+}
+
+function rm(element){
+		var part = $(element);
+		part.parent().parent().fadeOut(fadeTiming);
+		$("#widget").attr("src","img/bike_bg.png");
+}
+
+$(function(){
+	$("#widget").click(function(){
+		$(".partz").fadeOut();
+		$("#widget").attr("src","img/bike_bg.png");
+	});
+});
+
+</script>
+</body>
+</html>
