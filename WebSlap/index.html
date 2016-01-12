@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webcam Slapper</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+</head>
+<body>
+<div class="container" id="container">
+
+	<div class="info">
+		<p>Source: <a href="https://github.com/kostasx/webslap">Github</a> | Based on: <a href="https://github.com/iambrandonn/WebcamSwiper">WebcamSwiper</a> by Brandon Nicholls | Video: <a href="http://www.youtube.com/watch?v=3BRw_ihZRJI">Brainiac</a></p>
+	</div>
+
+	<div id="score">Slaps: 0</div>
+	<div id="text">READY?</div>
+
+	<video id="video" autobuffer>
+    <!-- safari / chrome / ie9 -->
+    <source src="bitchslap.mp4" type='video/mp4;' />
+    <!-- firefox / opera -->
+    <source type="video/ogg" src="bitchslap.ogg">
+	</video>
+	
+</div>
+<script src="webcam-swiper-0.1.js"></script>
+<script>
+
+$(function(){
+
+	var video 		   = document.getElementById("video");
+	var text 		   = document.getElementById("text");
+	var scoreContainer = document.getElementById("score");
+	var container 	   = document.getElementById("container");
+	var score 		   = 0;
+	var isMoving = false;
+
+	if ( navigator.getUserMedia === undefined ) {
+
+		text.style.fontSize = "1em";
+		text.innerHTML = "Your browser doesn't support getUserMedia(). Try using the latest version of Chrome or Firefox 20+.";
+		return;
+
+	}
+
+	video.style.display = "block";
+
+	document.getElementsByTagName("body")[0].addEventListener("webcamSwipeLeft", rightSlap, true);
+
+	function rightSlap() {
+
+		if (!isMoving) {
+			isMoving = true;
+			text.style.display = "none";
+			video.addEventListener("ended", timeUpdate	);
+			video.play();
+
+		}
+	}
+
+	function timeUpdate(){
+
+			video.removeEventListener("ended", timeUpdate ); 
+			afterSlap(); 
+
+	}
+
+	function afterSlap() {
+
+		score++;
+		scoreContainer.innerHTML = "Slaps: " + score;
+
+		video.play();
+		video.pause();
+
+		delay = window.setTimeout( function(){
+
+			text.style.display = "block";
+			isMoving = false;
+			window.clearTimeout(delay);
+
+		}, 500 );
+
+	}
+
+	window.initializeWebcamSwiper();
+
+});
+
+</script>
+</body>
+</html>

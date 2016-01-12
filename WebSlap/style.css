@@ -1,0 +1,59 @@
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	margin: 50px auto;
+}
+
+video {
+	display: none;
+	top: 0;
+	position: absolute;
+	width: 100%;
+	border: 8px solid black;
+}
+
+#text {
+	display: block;
+	color: red;
+	position: absolute;
+	top: 0;
+	font-size: 12em;
+	text-align: center;
+	width: 100%;
+	z-index: 10000;
+	font-family: Arial;
+	font-weight: bold;
+	color: white;
+	text-shadow: 4px 4px 0px black;
+}
+
+#score {
+	text-align: center;
+	color: white;
+	top: -40px;
+	left: 32px;
+	position: absolute;
+	font-size: 2em;
+	font-family: Verdana;
+	z-index: 10000;
+}
+
+.info {
+	color: #888;
+	z-index: 10000;
+	position: absolute;
+	bottom: 0;
+	right: 40px;
+}
+
+.info a {
+	color: #ddd;
+	text-decoration: none;
+}
